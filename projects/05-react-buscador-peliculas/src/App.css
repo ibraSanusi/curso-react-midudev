@@ -1,0 +1,30 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.billboard ul li {
+  list-style-type: none;
+}
+
+.billboard ul li img {
+  max-width: 200px;
+}
+
+.billboard ul{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
