@@ -1,11 +1,9 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { FiltersContext } from "../context/filters";
 
 export function useFilters() {
   // Valores iniciales de los filtros
-  const [filters, setFilters] = useState({
-    category: "all",
-    minPrice: 0,
-  });
+  const { filters, setFilters } = useContext(FiltersContext);
 
   return { filters, setFilters };
 }

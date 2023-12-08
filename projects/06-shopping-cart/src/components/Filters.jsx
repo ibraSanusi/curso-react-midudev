@@ -1,8 +1,11 @@
 import { useState, useId } from "react";
+import { useFilters } from "../hooks/useFilters";
 
 export function Filters({ changeFilters }) {
   // Minimo precio del filtrado
   const [minPrice, setMinPrice] = useState(0);
+
+  const { filters, setFilters } = useFilters();
 
   const priceFilterId = useId();
   const categoryFilterId = useId();
@@ -12,7 +15,7 @@ export function Filters({ changeFilters }) {
 
   const handlePriceFilter = (event) => {
     setMinPrice(event.target.value);
-    changeFilters({
+    setFilters({
       category: category,
       minPrice: event.target.value,
     });
@@ -20,7 +23,7 @@ export function Filters({ changeFilters }) {
 
   const handleCategoryFilter = (event) => {
     setCategory(event.target.value);
-    changeFilters({
+    setFilters({
       category: event.target.value,
       minPrice: minPrice,
     });
@@ -38,9 +41,9 @@ export function Filters({ changeFilters }) {
             min={0}
             max={1000}
             step={10}
-            defaultValue={minPrice}
+            defaultValue={filters.minPrice}
           />
-          <strong>{minPrice}€</strong>
+          <strong>{filters.minPrice}€</strong>
         </div>
 
         <div className="categories">
