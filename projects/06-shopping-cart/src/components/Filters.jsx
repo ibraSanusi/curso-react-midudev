@@ -1,7 +1,7 @@
 import { useState, useId } from "react";
 import { useFilters } from "../hooks/useFilters";
 
-export function Filters({ changeFilters }) {
+export function Filters() {
   // Minimo precio del filtrado
   const [minPrice, setMinPrice] = useState(0);
 

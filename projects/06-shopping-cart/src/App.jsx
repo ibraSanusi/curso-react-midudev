@@ -4,6 +4,8 @@ import { products as initialProducts } from "./mocks/products.json";
 import { getFilteredProducts } from "./service/filters";
 import { Filters } from "./components/Filters";
 import { useFilters } from "./hooks/useFilters";
+import { Cart } from "./components/Cart";
+import { CartsContextProvider } from "./context/carts";
 
 function App() {
   const { filters } = useFilters();
@@ -15,9 +17,12 @@ function App() {
       <nav className="filters">
         <Filters />
       </nav>
-      <main>
-        <Products products={filteredProducts} />
-      </main>
+      <CartsContextProvider>
+        <main>
+          <Products products={filteredProducts} />
+          <Cart />
+        </main>
+      </CartsContextProvider>
     </>
   );
 }
